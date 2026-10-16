@@ -1,0 +1,22 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+
+# Ficheros generados para pruebas
+*.apk
+*_exportado.xml
+/shared/build
+.kotlin
+
+# iOS: el proyecto de Xcode y su Info.plist se generan con XcodeGen a partir de iosApp/project.yml
+/iosApp/*.xcodeproj
+/iosApp/iosApp/Info.plist
+xcuserdata/
+DerivedData/
