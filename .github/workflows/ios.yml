@@ -12,14 +12,14 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "21"
 
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v5
 
       - name: Herramientas
         run: |
@@ -37,7 +37,7 @@ jobs:
             -configuration Debug -sdk iphonesimulator \
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build/ios \
-            CODE_SIGNING_ALLOWED=NO build
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO build
 
       - name: Capturas en simulador (iPhone y iPad)
         run: |
@@ -58,12 +58,12 @@ jobs:
             xcrun simctl shutdown "$UDID"
           done
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: capturas-ios
           path: capturas/
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: LISPlanner-simulador
           path: build/ios/Build/Products/Debug-iphonesimulator/LISPlanner.app

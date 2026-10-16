@@ -47,6 +47,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: $(LIS_BUNDLE_ID)
         LIS_BUNDLE_ID: com.lisplanner.app
         TARGETED_DEVICE_FAMILY: "1,2"
+        # Kotlin solo genera iOS para Apple Silicon (iPhone y simuladores en Mac M1+).
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_STYLE: Automatic
         ENABLE_USER_SCRIPT_SANDBOXING: NO
